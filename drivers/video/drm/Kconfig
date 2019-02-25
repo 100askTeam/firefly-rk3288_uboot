@@ -1,0 +1,79 @@
+menuconfig DRM_ROCKCHIP
+	bool "Rockchip DRM Support"
+	depends on DM_VIDEO && OF_LIVE
+	help
+	  Rockchip SoCs provide video output capabilities for High-Definition
+	  Multimedia Interface (HDMI), Low-voltage Differential Signalling
+	  (LVDS), embedded DisplayPort (eDP) and Display Serial Interface (DSI).
+
+	  This driver supports the on-chip video output device, and targets the
+	  Rockchip RK3288 and RK3399.
+
+config DRM_ROCKCHIP_PANEL
+	bool "Rockchip Panel Support"
+	select DRM_ROCKCHIP_MIPI_DSI
+
+config DRM_ROCKCHIP_DW_HDMI
+	bool "Rockchip specific extensions for Synopsys DW HDMI"
+	depends on DRM_ROCKCHIP
+	help
+	 This selects support for Rockchip SoC specific extensions
+	 for the Synopsys DesignWare HDMI driver. If you want to
+	 enable HDMI on, you should selet this option.
+
+config ROCKCHIP_INNO_HDMI_PHY
+	bool "Rockchip specific extensions for INNO HDMI PHY"
+	depends on DRM_ROCKCHIP
+	help
+	 This selects support for INNO HDMI PHY. If you want to
+	 use HDMI or TVE in RK322XH or RK322X, you should selet
+	 this option.
+
+config DRM_ROCKCHIP_MIPI_DSI
+	bool
+
+config DRM_ROCKCHIP_DW_MIPI_DSI
+	tristate "Rockchip specific extensions for Synopsys DW MIPI DSI"
+	depends on DRM_ROCKCHIP
+	select DRM_ROCKCHIP_MIPI_DSI
+	select DRM_ROCKCHIP_PANEL
+	help
+	 This selects support for Rockchip SoC specific extensions
+	 for the Synopsys DesignWare HDMI driver. If you want to
+	 enable MIPI DSI on RK3288 based SoC, you should selet this
+	 option.
+
+config DRM_ROCKCHIP_ANALOGIX_DP
+	bool "Rockchip specific extensions for Analogix DP driver"
+	depends on DRM_ROCKCHIP
+	select DRM_ROCKCHIP_PANEL
+	help
+	  This selects support for Rockchip SoC specific extensions
+	  for the Analogix Core DP driver. If you want to enable DP
+	  on RK3288 based SoC, you should selet this option.
+
+config DRM_ROCKCHIP_LVDS
+	bool "Rockchip LVDS Support"
+	depends on DRM_ROCKCHIP
+	select DRM_ROCKCHIP_PANEL
+	help
+	  Choose this option to enable support for Rockchip LVDS controllers.
+	  Rockchip rk3288 SoC has LVDS TX Controller can be used, and it
+	  support LVDS, rgb, dual LVDS output mode. say Y to enable its
+	  driver.
+
+config DRM_ROCKCHIP_RGB
+	bool "Rockchip RGB Support"
+	depends on DRM_ROCKCHIP
+	select DRM_ROCKCHIP_PANEL
+	help
+	  Choose this option to enable support for Rockchip RGB driver.
+	  say Y to enable its driver.
+
+config ROCKCHIP_DRM_TVE
+	bool "Rockchip TVE Support"
+	depends on DRM_ROCKCHIP
+	help
+	  Choose this option to enable support for Rockchip TVE.
+	  Rockchip rk322x and rk322xh SoC has TVE can be used, and
+	  say Y to enable TVE driver.
