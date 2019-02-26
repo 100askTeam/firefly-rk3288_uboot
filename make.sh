@@ -20,7 +20,7 @@ RKCHIP_INI_DESC=("CONFIG_TARGET_GVA_RK3229       NA          RK322XAT     NA"
 
 ########################################### User can modify #############################################
 # User's rkbin tool relative path
-RKBIN_TOOLS=../rkbin/tools
+RKBIN_TOOLS=./rkbin/tools
 
 # User's GCC toolchain and relative path
 ADDR2LINE_ARM32=arm-linux-gnueabihf-addr2line
