@@ -29,7 +29,9 @@ OBJ_ARM32=arm-linux-gnueabihf-objdump
 OBJ_ARM64=aarch64-linux-gnu-objdump
 GCC_ARM32=arm-linux-gnueabihf-
 GCC_ARM64=aarch64-linux-gnu-
-TOOLCHAIN_ARM32=$HOST_DIR/bin
+GUNEA=(`which arm-linux-gnueabihf-gcc-6.2.1`)
+TOOLCHAIN_ARM32=${GUNEA/arm-linux-gnueabihf-gcc-6.2.1}
+echo $TOOLCHAIN_ARM32
 TOOLCHAIN_ARM64=../prebuilts/gcc/linux-x86/aarch64/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin
 
 ########################################### User not touch #############################################
